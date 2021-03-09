@@ -6,6 +6,8 @@ Functions:
   - Create Array with Random Values
   - Insertion Sort
   - Insertion Sort (Decreasing value)
+  - Recursive Insertion Sort
+    - recursive function
   - Selection Sort
   - Linear Search
   - Find Value in Array (using linear search)

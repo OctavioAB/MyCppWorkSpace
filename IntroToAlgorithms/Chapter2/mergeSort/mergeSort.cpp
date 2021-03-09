@@ -12,6 +12,7 @@
 using namespace std;
 
 void mergeSort(int* array, int leftArrayB, int rightArrayE);
+void binarySearch(int* array, int arrayLength);
 
 int main(){
   int numbers1Length = 16;
@@ -50,8 +51,8 @@ int main(){
 void merge(int* array, int leftArrayB, int leftArrayE, int rightArrayE){
   int leftSize = leftArrayE-leftArrayB+1; 
   int rightSize = rightArrayE-leftArrayE;
-  int *leftArray = (int*)malloc(sizeof(int)*(leftSize));//+1));
-  int *rightArray = (int*)malloc(sizeof(int)*(rightSize));//+1));
+  int *leftArray = (int*)malloc(sizeof(int)*(leftSize));
+  int *rightArray = (int*)malloc(sizeof(int)*(rightSize));
   int i = 0;
   while(i<leftSize){
     leftArray[i]=array[leftArrayB+i];
@@ -62,8 +63,6 @@ void merge(int* array, int leftArrayB, int leftArrayE, int rightArrayE){
     rightArray[j]=array[leftArrayE+j+1];
     j++;
   }
-  // leftArray[i] = INT32_MAX;
-  // rightArray[j] = INT32_MAX;
   i = 0;
   j = 0;
   for(int k = leftArrayB; k<rightArrayE+1;k++){
@@ -95,4 +94,6 @@ void mergeSort(int* array, int p, int r){
     merge(array, p, mid, r); // Combine the already sorted "left" and  "right" sides of the array
   }
 }
+
+
 
