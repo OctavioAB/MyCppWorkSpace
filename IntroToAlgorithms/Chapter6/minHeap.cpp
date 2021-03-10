@@ -7,6 +7,7 @@ the book Introduction To Algorithms, by Thomas H. Cormen et al.
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
+#include "utils.h"
 
 using namespace std;
 
@@ -17,8 +18,8 @@ void printArray(int* arr, int a_len);
 
 int main(){
   int arrayLength = 10;
-  int* array_1 = (int*)(calloc(arrayLength,sizeof(int)));
-  printArray(array_1,arrayLength);
+  int* array_1 = createRandomArray(arrayLength);
+  printMyArray(array_1, arrayLength);
   free(array_1);
 }
 
@@ -59,11 +60,4 @@ int left_ify(int i){
 int right_ify(int i){
   if(i==0) return 2;
   return (i<<1) + 1;
-}
-
-void printArray(int* arr, int a_len){
-  for(int i=0;i<a_len;i++){
-    cout << arr[i] << " ";
-  }
-  cout << "\n";
 }
