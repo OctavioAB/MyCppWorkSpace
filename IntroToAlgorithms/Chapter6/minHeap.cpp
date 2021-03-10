@@ -4,17 +4,22 @@ A simple implementation of a Min-Binary Heap, based on the explanation given in
 the book Introduction To Algorithms, by Thomas H. Cormen et al.
 */
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <iostream>
 
 using namespace std;
 
-int minHeapify(int[]* A, int A_len, int i);
+int minHeapify(int* A, int A_len, int i);
 int left_ify(int i), right_ify(int i);
-int buildMinHeap(int[]* A, int A_len);
+int buildMinHeap(int* A, int A_len);
+void printArray(int* arr, int a_len);
 
 int main(){
   int arrayLength = 10;
-  int* array_1 = (int*)(calloc(sizeof(int)*arrayLength));
+  int* array_1 = (int*)(calloc(arrayLength,sizeof(int)));
   printArray(array_1,arrayLength);
+  free(array_1);
 }
 
 int minHeapify(int* A, int heapSize, int i){ // TEST!
@@ -43,6 +48,7 @@ int buildMinHeap(int* A, int A_len){
   for(int i=(A_len/2)-1;i>=0;i--){
     minHeapify(A, heapSize, i);
   }
+  return 1;
 }
 
 int left_ify(int i){
@@ -52,7 +58,7 @@ int left_ify(int i){
 
 int right_ify(int i){
   if(i==0) return 2;
-  return i<<1 + 1;
+  return (i<<1) + 1;
 }
 
 void printArray(int* arr, int a_len){
