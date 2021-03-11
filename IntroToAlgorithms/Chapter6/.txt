@@ -1,0 +1,7 @@
+Last Updated 2021 Mar 10
+Octavio E Anino Barber
+
+Right now the binaryHeap directory is further divided into the minHeap, and maxHeap directories. Each one of these
+sub-directories in turn contains implementations of the namesake-structure.
+In the future, it would probably make sense to integrate both "specific" implementations of the binary heap into a single
+file...
