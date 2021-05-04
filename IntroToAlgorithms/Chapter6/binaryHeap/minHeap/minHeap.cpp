@@ -40,11 +40,11 @@ int main(){
   //36, 65, 7, 26, 13, 
 
 /* Function: minHeapify
-   Inputs: Pointer to Array 'A', Integer Size of Heap 'heapSize', Integer position of "parent" node 'i'(!).
+   Inputs: Pointer to Array 'A', Integer Size of Heap 'heapSize', Integer position of "parent" node 'i'(!! see NOTE below).
    Purpose: Given an array of integers 'A' and an integer 'i', rearrange the elements so that the min heap property
    holds for parent A[i], and leaves A[i*2], and A[i*2+1]. 
 
-   (!) The integer for the position of theparent node 'i' is considered to be in respect to an array were the first 
+   (NOTE) The integer for the position of the parent node 'i' is considered to be in respect to an array were the first 
    element is at A[1], so to access the "correct" parent - and the leaves too for that matter - one must use "A[i-1]"
    - or the equivalent for the corresponding leaves.
 */
