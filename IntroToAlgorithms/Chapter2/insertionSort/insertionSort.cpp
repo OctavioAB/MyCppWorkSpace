@@ -39,12 +39,12 @@ int main(){
   int *numbers = createRandomArray(numbersLength);
   printMyArray(numbers, numbersLength);
   test(numbers, numbersLength);
-  //
+  
   cout << "\n\n";
   insertionSort(numbers, numbersLength);
   printMyArray(numbers, numbersLength);
   test(numbers, numbersLength);
-  //
+  
   cout << "\n\n";
   int numbers2Length = 30;
   int *numbers2 = createRandomArray(numbers2Length);
@@ -84,7 +84,7 @@ int main(){
 
 
 void insertionSort(int* array, int arrayLength){
-  for(int j = 1; j<=arrayLength; j++){
+  for(int j = 1; j<arrayLength; j++){
     int curr = array[j];
     int i = j - 1;
     while(i>=0 && array[i]>curr){
