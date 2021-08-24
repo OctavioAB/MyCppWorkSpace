@@ -25,6 +25,18 @@ int *createRandomArray(int length){
 
 }
 
+void insertionSort(int* array, int arrayLength){
+  for(int j = 1; j<arrayLength; j++){
+    int curr = array[j];
+    int i = j - 1;
+    while(i>=0 && array[i]>curr){
+      array[i+1] = array[i];
+      i = i -1;
+      }
+    array[i+1] = curr;
+  }
+}
+
 void printMyArray(int* array, int arrayLength){
   int i = 0;
   while(i<arrayLength){
@@ -33,4 +45,5 @@ void printMyArray(int* array, int arrayLength){
   }
   cout << "\n";
 }
+
 

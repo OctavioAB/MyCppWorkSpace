@@ -31,55 +31,17 @@ void recursiveSort(int* array, int n);
 int linearSearch(int* array, int arrayLength, int value);
 void findIn(int* array, int arrayLength, int value);
 void printMyArray(int* array, int arrayLength);
-void test(int* array, int arrayLength);
+void search(int* array, int arrayLength);
+void test(int numbersLength);
 
 int main(){
   
   int numbersLength = 20;
   int *numbers = createRandomArray(numbersLength);
   printMyArray(numbers, numbersLength);
-  test(numbers, numbersLength);
-  
-  cout << "\n\n";
-  insertionSort(numbers, numbersLength);
+  insertionSort(&numbers[4],10);
   printMyArray(numbers, numbersLength);
-  test(numbers, numbersLength);
-  
-  cout << "\n\n";
-  int numbers2Length = 30;
-  int *numbers2 = createRandomArray(numbers2Length);
-  printMyArray(numbers2, numbers2Length);
-  test(numbers2, numbers2Length);
-  //
-  cout << "\n\n";
-  insertionSortDecreasing(numbers2, numbers2Length);
-  printMyArray(numbers2, numbers2Length);
-  test(numbers2, numbers2Length);
-  //
-  cout << "\n\n";
-  int numbers3Length = 40;
-  int* numbers3 = createRandomArray(numbers3Length);
-  printMyArray(numbers3, numbers3Length);
-  test(numbers3, numbers3Length);
-  //
-  cout << "\n\n";
-  selectionSort(numbers3,numbers3Length);
-  printMyArray(numbers3, numbers3Length);
-  test(numbers3, numbers3Length);
-  //
-  cout << "\n\n";
-  int numbers4Length = 30;
-  int* numbers4 = createRandomArray(numbers4Length);
-  printMyArray(numbers4, numbers4Length);
-  cout<<"\n";
-  recursiveInsertionSort(numbers4,numbers4Length);
-  printMyArray(numbers4, numbers4Length);
-  test(numbers4, numbers4Length);
 
-  free(numbers);
-  free(numbers2);
-  free(numbers3);
-  free(numbers4);
 }
 
 
@@ -179,7 +141,7 @@ void printMyArray(int* array, int arrayLength){
   cout << "\n";
 }
 
-void test(int* array, int arrayLength){
+void search(int* array, int arrayLength){
   findIn(array, arrayLength, 1);
   findIn(array, arrayLength, 5);
   findIn(array, arrayLength, 10);
@@ -188,4 +150,22 @@ void test(int* array, int arrayLength){
   findIn(array, arrayLength, 60);
   findIn(array, arrayLength, 80);
   findIn(array, arrayLength, 100);
+}
+
+/**
+ *  Currently using recursive insertion sort
+ * 
+ * 
+ */
+void test(int numbersLength){
+  cout << "\n\n";
+  int* numbers = createRandomArray(numbersLength);
+  printMyArray(numbers, numbersLength);
+  cout<<"\n";
+  recursiveInsertionSort(numbers,numbersLength);
+  printMyArray(numbers, numbersLength);
+  search(numbers, numbersLength);
+  cout << "\n\n";
+
+  free(numbers);
 }

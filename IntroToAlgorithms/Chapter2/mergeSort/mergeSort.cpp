@@ -11,40 +11,19 @@
 
 using namespace std;
 
+void merge(int* array, int leftArrayB, int leftArrayE, int rightArrayE);
 void mergeSort(int* array, int leftArrayB, int rightArrayE);
+void modifiedMergeSort(int* array, int p, int r, int k);
+void test(int arrayLength);
+void test2(int arrayLength);
 
 int main(){
-  int numbers1Length = 16;
-  int* numbers1 = createRandomArray(numbers1Length);
-  printMyArray(numbers1, numbers1Length);
-  mergeSort(numbers1, 0, numbers1Length-1);
-  printMyArray(numbers1, numbers1Length);
-  cout << "\n\n";
-
-  int numbers2Length = 32;
-  int* numbers2 = createRandomArray(numbers2Length);
-  printMyArray(numbers2, numbers2Length);
-  mergeSort(numbers2, 0, numbers2Length-1);
-  printMyArray(numbers2, numbers2Length);
-  cout << "\n\n";
-
-  int numbers3Length = 30;
-  int* numbers3 = createRandomArray(numbers3Length);
-  printMyArray(numbers3, numbers3Length);
-  mergeSort(numbers3, 0, numbers3Length-1);
-  printMyArray(numbers3, numbers3Length);
-  cout << "\n\n";
-
-  int numbers4Length = 5;
-  int* numbers4 = createRandomArray(numbers4Length);
-  printMyArray(numbers4, numbers4Length);
-  mergeSort(numbers4, 0, numbers4Length-1);
-  printMyArray(numbers4, numbers4Length);
-  cout << "\n\n";
-
-  free(numbers1);
-  free(numbers2);
-  free(numbers3);
+  // test(10);
+  // test(20);
+  // test(30);
+  test2(30);
+  test2(30);
+  test2(30);
 }
 
 void merge(int* array, int leftArrayB, int leftArrayE, int rightArrayE){
@@ -94,5 +73,46 @@ void mergeSort(int* array, int p, int r){
   }
 }
 
+void modifiedMergeSort(int* array, int p, int r, int k){
+  if(p<r){
+    if(r-p+1>k){
+        int mid = (p+r)/2;
+        modifiedMergeSort(array, p, mid, k); // Sort "left half" of array
+        modifiedMergeSort(array, mid+1, r, k); // Sort "right half" of array
+        merge(array, p, mid, r); // Combine the already sorted "left" and  "right" sides of the array
+    } else {
+      cout << "using insertion sort!" << endl;
+      insertionSort(&array[p], r-p+1);
+    }
+  }
+}
 
+/**
+ * 
+ * Tests merge sort on an array of size arrayLength
+ * 
+ */
+void test(int arrayLength){
+  int* numbers1 = createRandomArray(arrayLength);
+  printMyArray(numbers1, arrayLength);
+  mergeSort(numbers1, 0, arrayLength-1);
+  printMyArray(numbers1, arrayLength);
+  cout << "\n\n";
 
+  free(numbers1);
+}
+
+/**
+ * 
+ * Tests the modified version of merge sort on an array of size arrayLength
+ * 
+ */
+void test2(int arrayLength){
+  int* numbers1 = createRandomArray(arrayLength);
+  printMyArray(numbers1, arrayLength);
+  double log = log2(arrayLength);
+  int k = int(log);
+  modifiedMergeSort(numbers1, 0, arrayLength-1, k);
+  printMyArray(numbers1, arrayLength);
+  cout << "\n\n";
+}
