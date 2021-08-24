@@ -12,7 +12,6 @@
 using namespace std;
 
 void mergeSort(int* array, int leftArrayB, int rightArrayE);
-void binarySearch(int* array, int arrayLength);
 
 int main(){
   int numbers1Length = 16;

@@ -7,7 +7,12 @@ using namespace std;
 
 int *createRandomArray(int length){
 
-  std::mt19937 generator(time(0));
+  int userSeed;
+
+  cout << "Enter random seed: ";
+  cin >> userSeed;
+
+  std::mt19937 generator(userSeed);
   std::uniform_int_distribution<int> distribution(1,100);
 
   int *newArray = (int*)malloc(sizeof(int)*length);
